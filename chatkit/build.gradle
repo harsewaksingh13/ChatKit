@@ -25,6 +25,18 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
+    }
+
 }
 
 dependencies {
@@ -47,7 +59,7 @@ tasks.withType(JavaCompile).configureEach {
 publishing {
     publications {
         release(MavenPublication) {
-            groupId = 'com.stfalcon'
+            groupId = 'com.github.stfalcon'
             artifactId = 'chatkit'
             version = '1.1.2'
 
