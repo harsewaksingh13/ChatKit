@@ -45,7 +45,7 @@ publishing {
     publications {
         release(MavenPublication) {
             groupId = 'com.github.harsewaksingh13'
-            artifactId = 'viewpagerindicator'
+            artifactId = 'chatkit'
             version = '1.0.0'
 
             afterEvaluate {
