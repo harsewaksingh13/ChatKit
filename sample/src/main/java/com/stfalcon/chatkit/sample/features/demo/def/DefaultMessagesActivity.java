@@ -55,7 +55,7 @@ public class DefaultMessagesActivity extends DemoMessagesActivity
         super.messagesAdapter = new MessagesListAdapter<>(super.senderId, super.imageLoader);
         super.messagesAdapter.enableSelectionMode(this);
         super.messagesAdapter.setLoadMoreListener(this);
-        super.messagesAdapter.registerViewClickListener(R.id.messageUserAvatar,
+        super.messagesAdapter.registerViewClickListener(com.stfalcon.chatkit.R.id.messageUserAvatar,
                 (view, message) -> AppUtils.showToast(DefaultMessagesActivity.this,
                         message.getUser().getName() + " avatar click",
                         false));

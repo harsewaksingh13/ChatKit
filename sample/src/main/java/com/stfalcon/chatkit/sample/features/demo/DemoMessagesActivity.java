@@ -25,9 +25,7 @@ import java.util.Locale;
 /*
  * Created by troy379 on 04.04.17.
  */
-public abstract class DemoMessagesActivity extends AppCompatActivity
-        implements MessagesListAdapter.SelectionListener,
-        MessagesListAdapter.OnLoadMoreListener {
+public abstract class DemoMessagesActivity extends AppCompatActivity implements MessagesListAdapter.SelectionListener, MessagesListAdapter.OnLoadMoreListener {
 
     private static final int TOTAL_MESSAGES_COUNT = 100;
 
@@ -62,14 +60,11 @@ public abstract class DemoMessagesActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_delete:
-                messagesAdapter.deleteSelectedMessages();
-                break;
-            case R.id.action_copy:
-                messagesAdapter.copySelectedMessagesText(this, getMessageStringFormatter(), true);
-                AppUtils.showToast(this, R.string.copied_message, true);
-                break;
+        if (item.getItemId() == R.id.action_delete) {
+            messagesAdapter.deleteSelectedMessages();
+        } else if (item.getItemId() == R.id.action_copy) {
+            messagesAdapter.copySelectedMessagesText(this, getMessageStringFormatter(), true);
+            AppUtils.showToast(this, R.string.copied_message, true);
         }
         return true;
     }
@@ -109,14 +104,12 @@ public abstract class DemoMessagesActivity extends AppCompatActivity
 
     private MessagesListAdapter.Formatter<Message> getMessageStringFormatter() {
         return message -> {
-            String createdAt = new SimpleDateFormat("MMM d, EEE 'at' h:mm a", Locale.getDefault())
-                    .format(message.getCreatedAt());
+            String createdAt = new SimpleDateFormat("MMM d, EEE 'at' h:mm a", Locale.getDefault()).format(message.getCreatedAt());
 
             String text = message.getText();
             if (text == null) text = "[attachment]";
 
-            return String.format(Locale.getDefault(), "%s: %s (%s)",
-                    message.getUser().getName(), text, createdAt);
+            return String.format(Locale.getDefault(), "%s: %s (%s)", message.getUser().getName(), text, createdAt);
         };
     }
 }

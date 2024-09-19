@@ -47,15 +47,15 @@ public abstract class Style {
     }
 
     protected final int getSystemAccentColor() {
-        return getSystemColor(R.attr.colorAccent);
+        return getSystemColor(androidx.appcompat.R.attr.colorAccent);
     }
 
     protected final int getSystemPrimaryColor() {
-        return getSystemColor(R.attr.colorPrimary);
+        return getSystemColor(androidx.appcompat.R.attr.colorPrimary);
     }
 
     protected final int getSystemPrimaryDarkColor() {
-        return getSystemColor(R.attr.colorPrimaryDark);
+        return getSystemColor(androidx.appcompat.R.attr.colorPrimary);
     }
 
     protected final int getSystemPrimaryTextColor() {
