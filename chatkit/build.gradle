@@ -5,6 +5,9 @@ android {
     compileSdk 34
 
     defaultConfig {
+        aarMetadata {
+            minCompileSdk = 21
+        }
         namespace "com.stfalcon.chatkit"
         minSdkVersion 21
         versionCode 1
@@ -44,19 +47,13 @@ tasks.withType(JavaCompile).configureEach {
 publishing {
     publications {
         release(MavenPublication) {
-            groupId = 'com.github.harsewaksingh13'
+            groupId = 'com.stfalcon'
             artifactId = 'chatkit'
             version = '1.0.0'
 
             afterEvaluate {
-//                from components.release
+                from components.findByName('release')
             }
-        }
-    }
-    repositories {
-        maven {
-            name = 'com.guthub.harsewaksingh13'
-            url = layout.buildDirectory.dir("repo")
         }
     }
 }
