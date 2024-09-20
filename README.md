@@ -51,11 +51,11 @@ allprojects {
 }
 ```
 2. Add the dependency
-[![](https://jitpack.io/v/stfalcon-studio/Chatkit.svg)](https://jitpack.io/#stfalcon-studio/Chatkit)
+[Jitpack-chatkit](https://jitpack.io/#harsewaksingh13/ChatKit)
 ```
 dependencies {
   ...
-  implementation 'com.github.stfalcon-studio:Chatkit:[last_version]'
+  implementation 'com.github.harsewaksingh13:ChatKit:v1.1.3'
 }  
 ```
 
